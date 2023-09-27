@@ -49,11 +49,19 @@ Enemy.prototype.turnLeft = function (angle) {
 };
 
 Enemy.prototype.move = function () {
+    if (this.position.x <= 0 - WIDTH/2 || this.position.x >= 500)
+    {
+        if (this.direction === 0)
+            this.direction = 3.14;
+        else
+            this.direction = 0
+    }
     var moveTo = new THREE.Vector3(
         this.speed * Math.cos(this.direction) + this.position.x,
-        this.speed * Math.sin(this.direction) + this.position.y,
+        this.position.y,
         this.graphic.position.z
     );
+    
 
     this.position = moveTo;
 

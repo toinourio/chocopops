@@ -3,6 +3,9 @@ function update()
     var delta = clock.getDelta(); // seconds.
     var moveDistance = 50 * delta; // 200 pixels per second
     var rotateAngle = Math.PI / 2 * delta * 2;   // pi/2 radians (90 degrees) per second
+    
+    enemy1.accelerate(moveDistance);
+    enemy1.move();
 
     if (keyboard.pressed("left"))
         player1.turnLeft(rotateAngle);

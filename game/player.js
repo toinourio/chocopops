@@ -67,6 +67,8 @@ Player.prototype.move = function () {
         this.graphic.position.z
     );
 
+    console.log(this.direction);
+
     this.position = moveTo;
 
     if (this.speed > 0) {
