@@ -23,9 +23,10 @@ function init()
     $container.append(renderer.domElement);
 
     noGround = [];
+    position_ground = [0, 0];
     ground = new Ground(0xffffff, WIDTH, HEIGHT, 10);
     
-    player1 = new Player("player1", 0xffff00, new THREE.Vector2(50, 0), 0);
+    player1 = new Player("player1", 0xffff00, new THREE.Vector2(position_ground[0] + 50, position_ground[1]), 0);
     scene.add(player1.graphic);
 
     light1 = new Light("sun", 0xffffff, "0,0,340");
@@ -57,6 +58,7 @@ function Ground(color, size_x, size_y, nb_tile)
                 tmpGround.position.x = x;
                 tmpGround.position.y = y;
                 scene.add(tmpGround);
+                position_ground = [x, y];
             }
             else
                 noGround.push([x, y]);
